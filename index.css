@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* height + align-item to center */
+  height: 100vh;
+  display: flex;
+  background-color: #b33951;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* -------- Container Page 1 -------- */
+.container1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+  font-family: 'DynaPuff', cursive;
+  box-shadow: 0.2rem 0.2rem 1rem black;
+}
+
+.container1 h1 {
+  color:#b33951;
+  font-size: 3rem;
+}
+
+.container1 p {
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+.menu-button {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.btn {
+  padding: 0.7rem 2rem;
+  background-color: white;
+  border: 3px solid #b33951;
+  color: #b33951;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  font-family: 'DynaPuff', cursive;
+}
+
+.btn:hover {
+  background-color: #b33951;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+/* -------- Container Page 2 -------- */
+.container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-family: 'DynaPuff', cursive;
+  box-shadow: 0.2rem 0.2rem 1rem black;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+}
+
+.cell {
+  background-color: #f47f97;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.2s;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ******* Reset button set up ******* */
+.reset_btn {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+  border: 2px solid #f47f97;
+  font-family:'DynaPuff', cursive;
+  background-color: white;
+  cursor: pointer;
+}
+
+.reset_btn:hover {
+  color: white;
+  background-color: tomato;
+}
+
+/* ******* X & O labels && hover efects ******* */
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+/* ---- X set up ---- */
+.cell.x::before,
+.cell.x::after {
+  background-color: black;
+}
+
+.box.x .cell:not(.x):not(.circle):hover::before,
+.box.x .cell:not(.x):not(.circle):hover::after {
+  background-color: white;
+}
+
+.cell.x::before,
+.cell.x::after, 
+.box.x .cell:not(.x):not(.circle):hover::before,
+.box.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  width: 0.6rem;
+  height: 4rem;
+  position: absolute;
+}
+
+.cell.x::before, 
+.box.x .cell:not(.x):not(.circle):before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.box.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* ----- circle setup ------ */
+
+.cell.circle::before,
+.cell.circle::after {
+  background-color: black;
+}
+
+.box.circle .cell:not(.x):not(.circle):hover::before,
+.box.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: white;
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.box.circle .cell:not(.x):not(.circle):hover::before,
+.box.circle .cell:not(.x):not(.circle):hover::after{
+  content: "";
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.cell.cell.circle::after,
+.box.circle .cell:not(.x):not(.circle):hover::after {
+  width:2.8rem;
+  height:2.8rem;
+  background-color: #f47f97;
+}
+
+/* ******** container3 Set up ******** */
+.container3 {
+  background-color: #b33951;
+  display:grid;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DynaPuff', cursive;
+}
+
+.winningbox {
+  padding: 5rem;
+  background-color: white;
+  color: #b33951;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 1rem black;
+}
+
+#RestartButton {
+  padding: 1rem 4rem;
+  border: 2px solid #b33951;
+  color: #b33951;
+  background-color: white;
+  font-family:'DynaPuff', cursive;
+  border-radius: 1rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+}
+
+#RestartButton:hover {
+  background-color: #b33951;
+  color: white;
+}
+
+
+/* ********* JavaScript ********* */
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+.fadeOut {
+  animation: hide .3s linear alternate;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.fadeIn {
+  animation: show .3s linear alternate;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
