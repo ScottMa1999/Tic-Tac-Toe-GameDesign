@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game#1: TicTacToe</title>
+  <link rel="stylesheet" href="/index.css">
+  <script src="/index.js" defer></script>
+</head>
+<body>
+  <div class="container1">
+    <h1>Tic Tac Toe</h1>
+    <p>Welcome to the game!</p>
+    <div class="menu-button">
+      <button class="btn" id="start" >Start Game</button>
+    </div>
+  </div>
+  <div class="container2 hidden">
+    <div class="box" id="box">
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+    <button class="reset_btn" id="reset">Reset</button>
+  </div>
+  <div class="container3 hidden" id="winningMessage">
+    <div class="winningbox">
+      <div id="winningText"></div>
+      <button id="RestartButton">Restart</button>
+    </div>
+  </div>
+</body>
+</html>
